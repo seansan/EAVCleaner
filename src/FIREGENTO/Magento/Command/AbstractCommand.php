@@ -16,6 +16,14 @@ class AbstractCommand extends \N98\Magento\Command\AbstractMagentoCommand
     /** @var OutputInterface $output  */
     protected $_output;
 
+    protected function _prefixTable($tbl)
+    {
+        $resource = \Mage::getSingleton('core/resource');
+        return $resource->getTableName($tbl);
+    }
+
+
+
     protected function _info($message)
     {
         $this->_output->writeln("<info>$message</info>");
